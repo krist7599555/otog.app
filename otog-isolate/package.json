@@ -1,0 +1,28 @@
+{
+  "name": "otog-isolate",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node --loader tsx ./app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@polka/send-type": "^0.5.2",
+    "body-parser": "^1.20.1",
+    "fp-ts": "^2.13.1",
+    "io-ts": "^2.2.20",
+    "polka": "^0.5.2",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4",
+    "zx": "^7.1.1"
+  },
+  "devDependencies": {
+    "@polka__send-type": "link:@types/@polka__send-type",
+    "@types/body-parser": "^1.19.2",
+    "@types/node": "^18.11.17",
+    "@types/polka": "^0.5.4"
+  }
+}

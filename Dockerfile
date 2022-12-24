@@ -1,6 +1,8 @@
 FROM node:18.0-slim AS base
 WORKDIR /app
-RUN apt-get update && apt-get -y install g++ && rm -rf /var/lib/apt/lists/*
+RUN cgroup_enable=memory swapaccount=1
+RUN apt-get update && apt-get -y install g++ libcap-dev && rm -rf /var/lib/apt/lists/*
+
 RUN npm i -g pnpm@7.19
 COPY .npmrc package.json pnpm-lock.yaml .
 RUN ls -la
