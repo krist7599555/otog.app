@@ -13,7 +13,7 @@ COPY --from=dependencies /app/node_modules ./node_modules
 RUN pnpm run build
 RUN pnpm prune --prod
 
-FROM base as deploy
+FROM base
 WORKDIR /app
 COPY --from=build /app/build ./build
 COPY --from=build /app/node_modules ./node_modules
