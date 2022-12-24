@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id         Int          @id @default(autoincrement())
+  username   String       @unique
+  name       String
+  role       Role         @default(USER)
+  Submission Submission[]
+
+  @@map("users")
+}
+
+model Problem {
+  id         Int          @id @default(autoincrement())
+  title      String
+  pdf        String?
+  tags       String[]     @default([])
+  created_at DateTime     @default(now())
+  Submission Submission[]
+
+  @@map("problems")
+}
+
+model Submission {
+  id         Int      @id @default(autoincrement())
+  lang       String
+  code       String
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    Int
+  problem    Problem  @relation(fields: [problem_id], references: [id])
+  problem_id Int
+  created_at DateTime @default(now())
+  result     String
+
+  @@index([created_at])
+  @@index([user_id])
+  @@index([problem_id])
+  @@index([user_id, problem_id])
+  @@map("submissions")
+}

@@ -3,7 +3,9 @@
 // and what to do when importing types
 declare namespace App {
 	// interface Error {}
-	// interface Locals {}
+	interface Locals {
+		prisma: import("@prisma/client").PrismaClient
+	}
 	// interface PageData {}
 	// interface Platform {}
 }

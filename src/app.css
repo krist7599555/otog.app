@@ -1,0 +1,57 @@
+@import '@fontsource/noto-sans/300.css';
+@import '@fontsource/noto-sans/400.css';
+@import '@fontsource/noto-sans-thai/300.css';
+@import '@fontsource/noto-sans-thai/400.css';
+/* @import '$lib/fonts/DB AdmanRounded/index.css'; */
+/* @import '$lib/fonts/Quicksand/index.css'; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+	* {
+		box-sizing: border-box;
+		-webkit-tap-highlight-color: transparent;
+		appearance: none;
+	}
+	input {
+		user-select: text;
+	}
+	button {
+		user-select: none;
+		cursor: pointer;
+	}
+	html {
+		background: theme('colors.primary.300');
+
+		/* @apply selection:bg-primary/40; */
+		font-size: 16px;
+		font-weight: 300;
+		font-family: 'Noto Sans Thai', 'Noto Sans', 'Sukhumvit Set', ui-sans-serif, system-ui,
+			-apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol,
+			'Noto Color Emoji';
+		width: 100vw;
+		overflow-x: hidden;
+	}
+	body {
+		touch-action: manipulation;
+		background-color: white;
+	}
+	/* 
+	b {
+		@apply font-bold;
+	}
+	img,
+	svg {
+		@apply pointer-events-none;
+	} */
+}
+
+@layer components {
+	/* .ring-app {
+		@apply focus:outline-none focus-visible:outline-none;
+		@apply ring-primary/60 ring-offset-2 focus:outline-none focus:ring;
+	} */
+}

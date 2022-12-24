@@ -1,37 +1,48 @@
 {
-	"name": "otog.app",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "playwright test",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
-	},
-	"devDependencies": {
-		"@playwright/test": "^1.28.1",
-		"@sveltejs/adapter-auto": "^1.0.0",
-		"@sveltejs/kit": "^1.0.0",
-		"@typescript-eslint/eslint-plugin": "^5.45.0",
-		"@typescript-eslint/parser": "^5.45.0",
-		"eslint": "^8.28.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-svelte3": "^4.0.0",
-		"pnpm": "^7.19.0",
-		"prettier": "^2.8.0",
-		"prettier-plugin-svelte": "^2.8.1",
-		"svelte": "^3.54.0",
-		"svelte-check": "^2.9.2",
-		"tslib": "^2.4.1",
-		"typescript": "^4.9.3",
-		"vite": "^4.0.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"@sveltejs/adapter-node": "^1.0.0"
-	}
+  "name": "otog.app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --names \"SVELTE,POSTGRES\" -c \"bgBlue.bold,bgMagenta.bold\" \"pnpm:svelte:dev\" \"pnpm:fly:pg-proxy\"",
+    "svelte:dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --plugin-search-dir . --write . && eslint . --fix",
+    "fly:pg-proxy": "flyctl proxy 5432 -a otog-db"
+  },
+  "devDependencies": {
+    "@fontsource/noto-sans": "^4.5.11",
+    "@fontsource/noto-sans-thai": "^4.5.12",
+    "@playwright/test": "^1.28.1",
+    "@prisma/client": "^4.8.0",
+    "@sveltejs/adapter-auto": "^1.0.0",
+    "@sveltejs/kit": "^1.0.0",
+    "@types/node": "^18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "pnpm": "^7.19.0",
+    "postcss": "^8.4.20",
+    "postcss-import": "^15.1.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.8.1",
+    "prisma": "^4.8.0",
+    "svelte": "^3.54.0",
+    "svelte-check": "^2.9.2",
+    "tailwindcss": "^3.2.4",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@sveltejs/adapter-node": "^1.0.0"
+  }
 }
