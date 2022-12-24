@@ -11,35 +11,35 @@
 @tailwind variants;
 
 @layer base {
-	* {
-		box-sizing: border-box;
-		-webkit-tap-highlight-color: transparent;
-		appearance: none;
-	}
-	input {
-		user-select: text;
-	}
-	button {
-		user-select: none;
-		cursor: pointer;
-	}
-	html {
-		background: theme('colors.primary.300');
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+  }
+  input {
+    user-select: text;
+  }
+  button {
+    user-select: none;
+    cursor: pointer;
+  }
+  html {
+    background: theme('colors.primary.300');
 
-		/* @apply selection:bg-primary/40; */
-		font-size: 16px;
-		font-weight: 300;
-		font-family: 'Noto Sans Thai', 'Noto Sans', 'Sukhumvit Set', ui-sans-serif, system-ui,
-			-apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol,
-			'Noto Color Emoji';
-		width: 100vw;
-		overflow-x: hidden;
-	}
-	body {
-		touch-action: manipulation;
-		background-color: white;
-	}
-	/* 
+    /* @apply selection:bg-primary/40; */
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Noto Sans Thai', 'Noto Sans', 'Sukhumvit Set', ui-sans-serif, system-ui,
+      -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol,
+      'Noto Color Emoji';
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  body {
+    touch-action: manipulation;
+    background-color: white;
+  }
+  /* 
 	b {
 		@apply font-bold;
 	}
@@ -50,7 +50,7 @@
 }
 
 @layer components {
-	/* .ring-app {
+  /* .ring-app {
 		@apply focus:outline-none focus-visible:outline-none;
 		@apply ring-primary/60 ring-offset-2 focus:outline-none focus:ring;
 	} */
