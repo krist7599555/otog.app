@@ -43,6 +43,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@sveltejs/adapter-node": "^1.0.0"
+    "@sveltejs/adapter-node": "^1.0.0",
+    "fp-ts": "^2.13.1",
+    "zx": "^7.1.1"
   }
 }
