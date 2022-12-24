@@ -3,7 +3,8 @@ import bodyparser from 'body-parser';
 import send from '@polka/send-type';
 import { basic_grading } from './grading';
 import * as path from 'node:path';
-const { PORT = 3000 } = process.env;
+
+const { PORT = 8080 } = process.env;
 
 const app = polka();
 

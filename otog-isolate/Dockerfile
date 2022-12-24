@@ -11,6 +11,7 @@ RUN make install
 WORKDIR /app
 
 ENV PORT=8080
+EXPOSE 8080
 RUN npm install -g pnpm@7.19
 COPY .npmrc package.json pnpm-lock.yaml .
 RUN pnpm i --no-frozen-lockfile
