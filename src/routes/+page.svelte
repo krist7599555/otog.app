@@ -1,2 +1,2 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>OTOG.app</h1>
+<p>next gen <a href="https://otog.cf">otog.cf</a></p>
