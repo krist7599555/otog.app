@@ -2,9 +2,12 @@
 // for information about these interfaces
 // and what to do when importing types
 declare namespace App {
-  // interface Error {}
+  interface Error {
+    message: string;
+    error_id?: string;
+  }
   interface Locals {
-    prisma: import('@prisma/client').PrismaClient;
+    prisma: typeof import("./hooks.server")._prisma
   }
   // interface PageData {}
   // interface Platform {}

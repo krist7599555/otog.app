@@ -1,9 +1,9 @@
 <nav class="border-b border">
   <div class="flex px-5 h-[3rem] justify-between items-center container mx-auto text-sm">
-    <div>
+    <a href="/">
       <img class="inline w-7" src="/logo.png" alt="otog" />
       <span class="ml-1 font-bold">OTOG.APP</span>
-    </div>
+    </a>
     <div class="font-bold">MENU</div>
   </div>
 </nav>
