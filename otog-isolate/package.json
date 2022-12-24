@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "node --loader tsx ./app.ts"
+    "start": "node --loader tsx ./app.ts",
+    "build": "echo EMPTY BUILD COMMAND"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@polka__send-type": "link:@types/@polka__send-type",
     "@types/body-parser": "^1.19.2",
     "@types/node": "^18.11.17",
-    "@types/polka": "^0.5.4"
+    "@types/polka": "^0.5.4",
+    "pnpm": "^7.19.0"
   }
 }

@@ -9,6 +9,7 @@ specifiers:
   body-parser: ^1.20.1
   fp-ts: ^2.13.1
   io-ts: ^2.2.20
+  pnpm: ^7.19.0
   polka: ^0.5.2
   tsx: ^3.12.1
   typescript: ^4.9.4
@@ -29,6 +30,7 @@ devDependencies:
   '@types/body-parser': 1.19.2
   '@types/node': 18.11.17
   '@types/polka': 0.5.4
+  pnpm: 7.19.0
 
 packages:
 
@@ -771,6 +773,12 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
     dev: false
+
+  /pnpm/7.19.0:
+    resolution: {integrity: sha512-0ZPqlBY9M5fqKI9Ya0kEB7PQj7Pg7bYEjXbRbg4pNnJIObzXeO+PaK/8FBd8KMgJe5QpLb6rn2nVFHNSNoz+kw==}
+    engines: {node: '>=14.6'}
+    hasBin: true
+    dev: true
 
   /polka/0.5.2:
     resolution: {integrity: sha512-FVg3vDmCqP80tOrs+OeNlgXYmFppTXdjD5E7I4ET1NjvtNmQrb1/mJibybKkb/d4NA7YWAr1ojxuhpL3FHqdlw==}
