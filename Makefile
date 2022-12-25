@@ -7,7 +7,7 @@ patchversion:
 	pnpm version patch --no-git-tag-version
 
 deploy: patchversion
-	fly deploy --remote-only --auto-confirm --image-label $(otog_version) ./
+	fly deploy --remote-only --auto-confirm ./
 
 
 

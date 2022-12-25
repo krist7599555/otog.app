@@ -1,6 +1,6 @@
 {
   "name": "otog.app",
-  "version": "0.0.30",
+  "version": "0.0.33",
   "private": true,
   "scripts": {
     "dev": "concurrently --names \"SVELTE,POSTGRES\" -c \"bgBlue.bold,bgMagenta.bold\" \"pnpm:svelte:dev\" \"pnpm:fly:pg-proxy\"",
@@ -8,6 +8,7 @@
     "build": "prisma generate && vite build",
     "preview": "vite preview",
     "test": "playwright test",
+    "start": "node ./build/index.js",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --write . && eslint . --fix",
@@ -43,6 +44,7 @@
   "dependencies": {
     "@prisma/client": "^4.8.0",
     "@sveltejs/adapter-node": "^1.0.0",
+    "dotenv-cli": "^6.0.0",
     "fp-ts": "^2.13.1",
     "prisma": "^4.8.0",
     "zx": "^7.1.1"

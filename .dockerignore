@@ -10,3 +10,5 @@ package
 **/vite.config.js.timestamp-*
 **/vite.config.ts.timestamp-*
 fly.toml
+Makefile
+.otog-volume
