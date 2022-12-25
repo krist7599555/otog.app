@@ -1,14 +1,14 @@
-# fly.toml file generated for otog on 2022-12-24T09:45:57+07:00
-app          = "otog"
+# fly.toml file generated for otog-sleepy on 2022-12-25T03:28:35+07:00
+
+app          = "otog-sleepy"
 kill_signal  = "SIGINT"
 kill_timeout = 5
 processes    = []
 
-# [build]
-# builder = "paketobuildpacks/builder:base"
-# buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
+[build]
+  image = "registry.fly.io/otog-isolate:deployment-01GN2WPG167KTPPGSR1CDHT2MV"
+
 [env]
-  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
@@ -20,7 +20,6 @@ processes    = []
   processes     = ["app"]
   protocol      = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20

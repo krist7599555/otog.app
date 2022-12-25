@@ -99,5 +99,13 @@
         "**/.*/**",
         "**/.vscode",
         "**/.vscode/**"
-    ]
+    ],
+    "[toml]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "evenBetterToml.formatter.alignEntries": true,
+    "evenBetterToml.formatter.indentString": "  ",
+    "evenBetterToml.formatter.indentEntries": true,
+    "evenBetterToml.formatter.indentTables": true
 }
