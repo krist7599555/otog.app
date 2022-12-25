@@ -22,6 +22,7 @@ RUN pnpm prune --prod
 FROM base
 WORKDIR /app
 ENV NODE_ENV=production
+COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/build ./build
 COPY --from=build /app/node_modules ./node_modules
 CMD ["node", "./build/index.js"]

@@ -2,13 +2,22 @@
 app          = "otog"
 kill_signal  = "SIGINT"
 kill_timeout = 5
-processes    = []
+
+[processes]
+  app = "node /app/build/index.js"
 
 # [build]
 # builder = "paketobuildpacks/builder:base"
 # buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
 [env]
   PORT = "8080"
+
+[mounts]
+  source      = "otog_data"
+  destination = "/otog"
+
+[deploy]
+  release_command = "pnpm prisma migrate deploy"
 
 [experimental]
   allowed_public_ports = []
