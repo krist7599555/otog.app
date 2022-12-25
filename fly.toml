@@ -16,8 +16,8 @@ kill_timeout = 5
   source      = "otog_data"
   destination = "/otog"
 
-[deploy]
-  release_command = "pnpm prisma migrate deploy"
+  # [deploy]
+  #   release_command = "pnpm prisma migrate deploy"
 
 [experimental]
   allowed_public_ports = []
