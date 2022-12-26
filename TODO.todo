@@ -1,0 +1,16 @@
+Infra:
+  ☐ use terraform
+  ☐ reproduce fly machine
+Basic:
+  ☐ file store in s3
+Learner:
+  ☐ ui to upload file
+  ☐ ui to read pdf
+  ☐ ui to judge
+Admin:
+  ☐ upload file
+Compiler:
+  ☐ able to run code
+  ☐ handle while(1)
+Submition:
+  ☐ api routing with backend
