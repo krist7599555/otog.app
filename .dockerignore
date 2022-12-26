@@ -12,3 +12,4 @@ package
 fly.toml
 Makefile
 .otog-volume
+Makefile

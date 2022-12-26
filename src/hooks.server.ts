@@ -1,5 +1,12 @@
+import { env } from '$env/dynamic/private';
 import { PrismaClient } from '@prisma/client';
 import type { Handle, HandleServerError } from '@sveltejs/kit';
+
+console.log({ env });
+
+// if (!env.DATABASE_URL) {
+//   throw new Error('env.DATABASE_URL is expect');
+// }
 
 export const _prisma = new PrismaClient();
 

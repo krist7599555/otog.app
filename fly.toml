@@ -1,50 +1,38 @@
-# fly.toml file generated for otog on 2022-12-24T09:45:57+07:00
+# fly.toml file generated for otog-monad on 2022-12-26T17:36:33+07:00
+
 app          = "otog"
 kill_signal  = "SIGINT"
 kill_timeout = 5
 
+
+[env]
+  MOUNT_VOLUME = "/otog"
+  PORT         = "8088"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[deploy]
+  release_command = "pnpm prisma db push"
+  strategy        = "immediate"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback        = true
+
+[mounts]
+  destination = "/otog"
+  source      = "otog_data"
+
 [processes]
   app = "node /app/build/index.js"
 
-[build]
-  dockerfile   = "Dockerfile"
-  build-target = "fly"
-
-[deploy]
-  release_command = "echo DATABASE_URL = \"$DATABASE_URL\"; echo MOUNT_VOLUME = \"$MOUNT_VOLUME\"; "
-  strategy        = "immediate"
-
-[[statics]]
-  guest_path = "/app"
-  url_prefix = "/fly-ftp-app"
-
-[[statics]]
-  guest_path = "/otog"
-  url_prefix = "/fly-ftp-otog"
-
-[env]
-  PORT         = "8080"
-  MOUNT_VOLUME = "/otog"
-
-[mounts]
-  source      = "otog_data"
-  destination = "/otog"
-
-  # [deploy]
-  #   release_command = "pnpm prisma migrate deploy"
-
-[experimental]
-  allowed_public_ports = [8080]
-  auto_rollback        = true
-
 [[services]]
-  # HTTP SERVICE
   http_checks   = []
-  internal_port = 8080
+  internal_port = 8088
   processes     = ["app"]
   protocol      = "tcp"
   script_checks = []
-
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
@@ -65,11 +53,10 @@ kill_timeout = 5
     restart_limit = 0
     timeout       = "2s"
 
-    # [[services]]
-    #   # SSH service
-    #   internal_port = 22
-    #   protocol      = "tcp"
+[[statics]]
+  guest_path = "/app"
+  url_prefix = "/fly-ftp-app"
 
-    #   [[services.ports]]
-    #     handlers = []
-    #     port     = 22
+[[statics]]
+  guest_path = "/otog"
+  url_prefix = "/fly-ftp-otog"

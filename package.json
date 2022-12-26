@@ -1,19 +1,20 @@
 {
   "name": "otog.app",
-  "version": "0.0.33",
+  "version": "0.0.40",
   "private": true,
   "scripts": {
     "dev:proxy": "concurrently --names \"SVELTE,POSTGRES\" -c \"bgBlue.bold,bgMagenta.bold\" \"pnpm:svelte:dev\" \"pnpm:fly:pg-proxy\"",
-    "dev": "dotenv -e .env -- vite dev",
+    "dev": "dotenv -e .env.prod -e .env -- vite dev",
     "svelte:dev": "vite dev",
-    "build": "prisma generate && vite build",
+    "build": "dotenv -e .env.prod -e .env -- prisma generate && dotenv -e .env.prod -e .env -- vite build",
     "preview": "vite preview",
     "test": "playwright test",
     "start": "node ./build/index.js",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --write . && eslint . --fix",
-    "fly:pg-proxy": "flyctl proxy 5432 -a otog-db"
+    "fly:pg-proxy": "flyctl proxy 5432 -a otog-db",
+    "db:push": "dotenv -e .env.prod -e .env -- prisma db push"
   },
   "devDependencies": {
     "@fontsource/noto-sans": "^4.5.11",
