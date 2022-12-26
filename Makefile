@@ -1,4 +1,4 @@
-FLY_APP = otop
+FLY_APP = otog
 FLY_ORG = personal
 PG_PASSWORD = santikku
 FLY_DB_APP = otog-db
@@ -41,7 +41,7 @@ create_machine:
 update:
 	@echo $(IMAGE_VERSION)
 	fly deploy --image-label $(IMAGE_VERSION) --build-only --push --app $(FLY_APP)
-	fly image update --image registry.fly.io/otop:$(IMAGE_VERSION) --app $(FLY_APP) --yes
+	fly image update --image registry.fly.io/$(FLY_APP):$(IMAGE_VERSION) --app $(FLY_APP) --yes
 
 destroy: SHELL:=/bin/bash
 destroy:
