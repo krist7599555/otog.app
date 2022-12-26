@@ -8,5 +8,13 @@
   "evenBetterToml.formatter.indentString": "  ",
   "evenBetterToml.formatter.indentEntries": true,
   "evenBetterToml.formatter.indentTables": true,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "sshfs.configs": [
+    {
+      "name": "OtogSsh",
+      "host": "otog.internal",
+      "root": "/app",
+      "username": "root"
+    }
+  ]
 }
