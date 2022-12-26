@@ -21,7 +21,7 @@ ENV MOUNT_VOLUME=/otog
 RUN pnpm run build
 RUN pnpm prune --prod
 
-FROM base
+FROM base AS fly
 ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=build /app/prisma ./prisma
