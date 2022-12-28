@@ -4,10 +4,6 @@ import type { Handle, HandleServerError } from '@sveltejs/kit';
 
 console.log({ env });
 
-if (!env.DATABASE_URL) {
-  throw new Error('env.DATABASE_URL is expect');
-}
-
 export const _prisma = new PrismaClient();
 
 export const handle: Handle = async ({ event, resolve }) => {
