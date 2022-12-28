@@ -1,9 +1,9 @@
-import { MOUNT_VOLUME } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import * as path from 'path';
 import * as fs from 'fs/promises';
 import { error } from '@sveltejs/kit';
 
-const mount_volume = path.resolve(MOUNT_VOLUME);
+const mount_volume = path.resolve(env.MOUNT_VOLUME);
 const url2path = (url: string) => path.resolve(url.replace('/fs', mount_volume));
 const path2url = (path: string) => '/fs' + path.replace(mount_volume, '');
 const file_type = async (path: string) => {
