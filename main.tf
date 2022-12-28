@@ -7,6 +7,15 @@ terraform {
   }
 }
 
+variable "FLY_API_TOKEN" {
+  type        = string
+  description = "require set env TF_VAR_FLY_API_TOKEN="
+}
+
+provider "fly" {
+  fly_api_token = var.FLY_API_TOKEN
+}
+
 resource "fly_app" "otogApp" {
   name = "otog"
   org  = "personal"
@@ -56,11 +65,6 @@ resource "fly_machine" "otogMachine" {
         {
           port     = 443
           handlers = ["tls", "http"]
-        },
-        {
-          port        = 80
-          handlers    = ["http"]
-          force_https = true
         }
       ]
       "protocol" : "tcp",

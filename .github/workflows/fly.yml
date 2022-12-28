@@ -14,6 +14,6 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       # - run: flyctl deploy --remote-only --auto-confirm .
       # - run: make IMAGE_VERSION=${{ github.sha }} update
-      - run: flyctl deploy --image-label latest --build-only --push --app otog
+      - run: flyctl deploy --remote-only --image-label latest --build-only --push --app otog
       - run: flyctl image update --image registry.fly.io/otog:latest --app otog --yes
     
