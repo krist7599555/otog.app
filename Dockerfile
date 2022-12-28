@@ -5,7 +5,7 @@ RUN apt-get update && apt-get -y install g++ libcap-dev vim net-tools ftp vsftpd
 # && rm -rf /var/lib/apt/lists/*
 
 RUN npm i -g pnpm@7.19
-COPY .npmrc package.json pnpm-lock.yaml .
+COPY .npmrc package.json pnpm-lock.yaml ./
 RUN ls -la
 
 FROM base AS dependencies
