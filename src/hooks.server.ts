@@ -10,6 +10,8 @@ export const handle: Handle = async ({ event, resolve }) => {
   try {
     event.locals.prisma = _prisma;
     const response = await resolve(event);
+    response.headers.set('x-fly-machine-id', env.FLY_ALLOC_ID ?? 'null');
+    response.headers.set('x-fly-region', env.FLY_REGION ?? 'null');
     return response;
   } catch (err) {
     console.error('handle', err);
