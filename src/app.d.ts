@@ -7,7 +7,8 @@ declare namespace App {
     error_id?: string;
   }
   interface Locals {
-    prisma: typeof import("./hooks.server")._prisma
+    prisma: typeof import('./hooks.server')._prisma;
+    s3: typeof import('./hooks.server')._s3;
   }
   // interface PageData {}
   // interface Platform {}

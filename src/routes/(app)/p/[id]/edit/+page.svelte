@@ -10,20 +10,39 @@ $: console.log(data);
 
 <div class="h-[inherit] bg-slate-200">
   <div class="max-w-[500px] mx-auto px-5 py-12">
-    <form method="POST" action="?/update_problem" class="flex flex-col gap-y-4" use:enhance>
+    <form
+      method="POST"
+      action="?/update_problem"
+      class="flex flex-col gap-y-4"
+      use:enhance
+      enctype="multipart/form-data"
+    >
       <fieldset>
         <legend>Basic Information</legend>
         <div>
           <label for="id">Id</label>
-          <input class="input" type="number" name="id" required bind:value="{data.id}" readonly />
+          <input
+            class="input"
+            type="number"
+            name="id"
+            required
+            bind:value="{data.problem.id}"
+            readonly
+          />
         </div>
         <div>
           <label for="title">Title</label>
-          <input class="input" type="text" name="title" bind:value="{data.title}" required />
+          <input
+            class="input"
+            type="text"
+            name="title"
+            bind:value="{data.problem.title}"
+            required
+          />
         </div>
         <div>
           <label for="pdf">PDF</label>
-          <input class="input" type="text" name="pdf" bind:value="{data.pdf}" />
+          <input class="input" type="text" name="pdf" bind:value="{data.problem.pdf}" />
           <p class="hint">TODO: upload file and pdf</p>
         </div>
       </fieldset>
@@ -32,7 +51,7 @@ $: console.log(data);
         <legend>Constrain</legend>
         <div>
           <label for="memorylimit">Memory</label>
-          <select class="input" type="text" value="100MB">
+          <select class="input" value="100MB">
             <option value="1GB">1GB</option>
             <option value="500MB">500MB</option>
             <option value="200MB">200MB</option>
@@ -51,7 +70,7 @@ $: console.log(data);
 
         <div>
           <label for="timelimit">timelimit</label>
-          <select class="input" type="text" value="1s">
+          <select class="input" value="1s">
             <option value="5s">5s</option>
             <option value="3s">3s</option>
             <option value="2s">2s</option>
@@ -72,7 +91,7 @@ $: console.log(data);
         <legend>Grading</legend>
         <div>
           <label for="grading">Grading</label>
-          <select class="input" type="text">
+          <select class="input">
             <option value="basic">Basic Input/Output</option>
             <option value="interactive">Interactive</option>
           </select>
@@ -82,22 +101,21 @@ $: console.log(data);
         <div>
           <label for="testcases">Test Case</label>
           <div class="grid grid-cols-2 gap-1">
-            {#each Array.from({ length: 10 }) as _, i}
+            {#each data.files ?? [] as file}
               <div
                 class="p-2 border-l-4 [&:hover::after]:[content:'_(click_to_download)'] [&:hover::after]:text-xs [&:hover::after]:opacity-70 border-b-[1px] rounded hover:border-primary cursor-pointer "
               >
-                {i + 1}.in
-              </div>
-              <div
-                class="p-2 border-l-4 [&:hover::after]:[content:'_(click_to_download)'] [&:hover::after]:text-xs [&:hover::after]:opacity-70 border-b-[1px] rounded hover:border-primary cursor-pointer "
-              >
-                {i + 1}.sol
+                {file.filename}
+                <span class="text-xs">
+                  {file.size} Byte. Modified at {file.last_modified}
+                </span>
               </div>
             {/each}
             <div
               class="col-span-full border p-4 text-center rounded shadow-inner cursor-pointer hover:underline hover:text-primary"
             >
               Drag and Drop to upload
+              <input type="file" multiple name="files" />
             </div>
           </div>
         </div>
