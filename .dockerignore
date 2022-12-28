@@ -13,3 +13,9 @@ fly.toml
 Makefile
 .otog-volume
 Makefile
+
+.terraform
+.terraform.*
+main.tf
+terraform.tfstate
+terraform.tfstate.*

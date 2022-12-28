@@ -29,4 +29,4 @@ COPY --from=build /app/build ./build
 COPY --from=build /app/node_modules ./node_modules
 COPY /otog-ftp ./otog-ftp
 # CMD ["vsftpd", "/app/otog-ftp/vsftpd.conf", "&", "node", "./build/index.js"]
-CMD ["node", "./build/index.js"]
+CMD ["node", "/app/build/index.js"]
