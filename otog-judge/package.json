@@ -1,0 +1,16 @@
+{
+  "name": "otog-judge",
+  "module": "main.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^0.4.0"
+  },
+  "dependencies": {
+    "async_hooks": "^1.0.0",
+    "fp-ts": "^2.13.1",
+    "hcl2-parser": "^1.0.3",
+    "io-ts": "^2.2.20",
+    "ts-pattern": "^4.0.6",
+    "zx": "^7.1.1"
+  }
+}

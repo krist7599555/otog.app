@@ -1,0 +1,28 @@
+{
+    "id": "isolate-feature",
+    "version": "0.0.1",
+    "name": "isolate-feature",
+    "description": "IOI isolate feature",
+    "features": {
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+            "packages": "libcap-dev,make,curl,wget"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/rocker-org/devcontainer-features/apt-packages"
+    ],
+    "options": {
+        "version": {
+            "type": "string",
+            "enum": [
+                "1.9",
+                "1.8",
+                "1.7",
+                "1.6",
+                "1.5"
+            ],
+            "default": "1.9",
+            "description": "Select a ioi isolate version to install."
+        }
+    }
+}

@@ -1,0 +1,38 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+  "name": "Debian Isolate",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "remoteUser": "root",
+  // require for isolate https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-breakout/docker-privileged
+  "privileged": true,
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "runArgs": [],
+  "remoteEnv": {
+    "LOCALWSF": "${localWorkspaceFolder}",
+    "CONTAINERWSF": "${containerWorkspaceFolder}"
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "features": {
+    // https://containers.dev/features
+    // "ghcr.io/devcontainers/features/git:1": {},
+    // "ghcr.io/devcontainers/features/node:1": {},
+    // "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {},
+    // "ghcr.io/dhoeric/features/flyctl:1": {},
+    // "ghcr.io/devcontainers/features/go:1": {},
+    // "./isolate-feature": {}
+  }
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Configure tool-specific properties.
+  // "customizations": {},
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
