@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/krist7599555/otog.app/compare/v1.0.0...v1.1.0) (2022-12-31)
+
+
+### Features
+
+* basic grading ([ef36a0c](https://github.com/krist7599555/otog.app/commit/ef36a0cf1a8ac8d03cc6c8fef36ece0f0285f89a))
+
 ## 1.0.0 (2022-12-28)
 
 
