@@ -1,11 +1,19 @@
-FROM golang:1.19-bullseye
+# FROM rust:1.66-bullseye
+FROM debian:bookworm
 RUN apt-get update
-RUN apt-get install -y libcap-dev curl wget make unzip
+RUN apt-get install -y build-essential libcap-dev curl wget make unzip lld mold
+ENV PATH="root/.cargo/bin:$PATH"
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+RUN cargo install cargo-watch
+RUN mkdir -p /build
+ENV CARGO_TARGET_DIR=/build
+# ENTRYPOINT cargo watch -- cargo run
+
 # HCL parser cli https://github.com/hashicorp/hcl/tree/main/cmd/hcldec
-RUN go install github.com/hashicorp/hcl/v2/cmd/hcldec@latest
+# RUN go install github.com/hashicorp/hcl/v2/cmd/hcldec@latest
 
 # BUN
-RUN curl -fsSL https://bun.sh/install | bash
+# RUN curl -fsSL https://bun.sh/install | bash
 
 # INSTALLATION http://www.ucw.cz/moe/isolate.1.html
 WORKDIR /isolate

@@ -1,0 +1,4 @@
+# https://rocket.rs/v0.5-rc/guide/configuration/
+[default]
+  address = "0.0.0.0"
+  port    = 3000

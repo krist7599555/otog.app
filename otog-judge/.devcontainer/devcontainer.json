@@ -16,6 +16,13 @@
     "LOCALWSF": "${localWorkspaceFolder}",
     "CONTAINERWSF": "${containerWorkspaceFolder}"
   },
+  "mounts": [
+    // {
+    //   "type": "bind",
+    //   "source": "${localWorkspaceFolder}/.cache-cargo-registry",
+    //   "target": "/usr/local/cargo/registry"
+    // }
+  ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "features": {
@@ -26,7 +33,7 @@
     // "ghcr.io/dhoeric/features/flyctl:1": {},
     // "ghcr.io/devcontainers/features/go:1": {},
     // "./isolate-feature": {}
-  }
+  },
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -35,4 +42,45 @@
   // "customizations": {},
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
+  "settings": {
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": true,
+      "**/*.code-search": true,
+      "**/target": true,
+      "**/problems/**/*.in": true,
+      "**/problems/**/*.sol": true
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+      "**/target": true,
+      "**/node_modules": true,
+      "**/.cache-cargo-registry": true
+    },
+    "explorer.excludeGitIgnore": true,
+    "files.eol": "\n",
+    "[rust]": {
+      "editor.defaultFormatter": "rust-lang.rust-analyzer",
+      "editor.formatOnSave": true
+    },
+    "remote.extensionKind": {
+      "ms-azuretools.vscode-docker": "workspace"
+    },
+    "editor.codeActionsOnSaveTimeout": 3000
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml", // for Cargo.toml
+        "davidanson.vscode-markdownlint",
+        "ms-azuretools.vscode-docker" // Docker integration and linting
+      ]
+    }
+  }
 }

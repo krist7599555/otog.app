@@ -1,0 +1,54 @@
+[package]
+  name    = "otog-judge"
+  version = "0.1.0"
+  edition = "2021"
+
+  # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+  rocket = { version = "0.5.0-rc.2", features = ["json"] }
+  serde = { version = "1.0", features = ["derive"] }
+  serde_json = "1.0.91"
+  tokio = { version = "1.23.0", features = [
+    "fs",
+    "io-std",
+    "io-util",
+    "libc",
+    "process",
+    "stats",
+  ] }
+regex = "1.7.0"
+
+  [dependencies.rocket_contrib]
+    version          = "0.4.10"
+    default-features = false
+    features         = ["json"]
+
+[target.x86_64-unknown-linux-gnu]
+  linker = "clang"
+  rustflags = [
+    "-Clink-arg=-fuse-ld=/usr/bin/mold",
+    "-Ztime-passes",
+    "-Ztimings",
+    "-Cbitcode-in-rlib=no",
+    "-Cembed-bitcode=no",
+    "-Zshare-generics=y",
+  ]
+
+  # [profile.dev]
+  #   split-debuginfo = "unpacked"
+  #   opt-level       = 1
+  #   debug           = 1
+
+[build]
+  # jobs = 1                      # number of parallel jobs, defaults to # of CPUs
+  # rustc = "rustc"               # the rust compiler tool
+  # rustc-wrapper = "…"           # run this wrapper instead of `rustc`
+  # rustc-workspace-wrapper = "…" # run this wrapper instead of `rustc` for workspace members
+  # rustdoc = "rustdoc"           # the doc generator tool
+  # target = "triple"             # build for the target triple (ignored by `cargo install`)
+  # target-dir = "target"         # path of where to place all generated artifacts
+  # rustflags = ["…", "…"]        # custom flags to pass to all compiler invocations
+  # rustdocflags = ["…", "…"]     # custom flags to pass to rustdoc
+  incremental = true # whether or not to enable incremental compilation
+  # dep-info-basedir = "…"        # path for the base directory for targets in depfiles
