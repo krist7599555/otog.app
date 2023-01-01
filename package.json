@@ -1,6 +1,6 @@
 {
   "name": "otog.app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev:proxy": "concurrently --names \"SVELTE,POSTGRES\" -c \"bgBlue.bold,bgMagenta.bold\" \"pnpm:svelte:dev\" \"pnpm:fly:pg-proxy\"",
